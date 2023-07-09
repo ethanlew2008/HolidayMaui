@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="HolidayMaui.CurrencyPage"
+             Title="CurrencyPage">
+    <VerticalStackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Grid.Row="0">
+                <Entry Text="{Binding Input}" FontSize="Header" HorizontalOptions="CenterAndExpand" Margin="0,0,0,50" x:Name="OutputButton" WidthRequest="1000" HorizontalTextAlignment="Center"/>
+
+
+                <Grid Margin="0,70,0,0">
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="From" Grid.Row="0" Grid.Column="0" FontSize="Title"/>
+                    <Label Text="To" Grid.Row="1" Grid.Column="0" FontSize="Title"/>
+
+                    <Picker Grid.Row="0" Grid.Column="1" ItemsSource="{Binding Currencies}" Title="Pick a Currency" SelectedItem ="{Binding Currency1}"/>
+
+                    <Picker Grid.Row="1" Grid.Column="1" ItemsSource="{Binding Currencies}" Title="Pick a Currency"  SelectedItem ="{Binding Currency2}"/>
+
+
+                </Grid>
+            </StackLayout>
+
+            <StackLayout Grid.Row="1" VerticalOptions="End">
+                <Button Text="Convert" BackgroundColor="LightSlateGray" Command="{Binding CurrencyButton}" HeightRequest="100"/>
+            </StackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
