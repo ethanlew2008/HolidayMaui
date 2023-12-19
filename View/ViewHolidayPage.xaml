@@ -4,5 +4,19 @@
              x:Class="HolidayMaui.ViewHolidayPage"
              Title="ViewHolidayPage">
     <VerticalStackLayout>
+
+        <ListView x:Name="listView" ItemsSource="{Binding Countries}" ItemSelected="listView_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding}" TextColor="White"/>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+            
+            
+            
+        
+
+
     </VerticalStackLayout>
 </ContentPage>
