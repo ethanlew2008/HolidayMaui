@@ -2,15 +2,16 @@ namespace HolidayMaui;
 
 public partial class ViewHolidayPage : ContentPage
 {
-	public ViewHolidayPage()
+	public ViewHolidayPage(INavigation navigation)
 	{
 		InitializeComponent();
-        BindingContext = new ViewHolidayViewModel();
+        BindingContext = new ViewHolidayViewModel(navigation);
     }
 
     private void listView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
     {
-        ViewHolidayViewModel viewHolidayViewModel = new ViewHolidayViewModel();
+        var navigation = App.Current.MainPage.Navigation;
+        ViewHolidayViewModel viewHolidayViewModel = new ViewHolidayViewModel(navigation);
         viewHolidayViewModel.ListClicked();
     }
 }

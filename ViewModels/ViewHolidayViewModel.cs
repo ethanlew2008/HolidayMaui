@@ -1,5 +1,8 @@
-﻿using System;
+﻿using HolidayMaui.View;
+using Microsoft.Maui.Storage;
+using System;
 using System.Collections.Generic;
+using System.Reflection.PortableExecutable;
 using System.Text;
 using System.Windows.Input;
 
@@ -22,19 +25,8 @@ namespace HolidayMaui
         }
         private double width;
 
-        public string Selected 
-        {
-            get { return selected; }
-            set
-            {
-                if (selected != value)
-                {
-                    selected = value;
-                    OnPropertyChange("Selected");
-                }
-            }
-        }
-        private string selected;
+
+        string Selected = "";
 
         public List<string> Countries
         {
@@ -52,10 +44,12 @@ namespace HolidayMaui
 
         public ICommand listselect { get; set; }
 
+        private readonly INavigation _navigation;
 
 
-        public ViewHolidayViewModel()
+        public ViewHolidayViewModel(INavigation navigation)
         {
+            _navigation = navigation;
             Width = DeviceDisplay.MainDisplayInfo.Width;
             listselect = new Command(ListClicked);
             PopulateList();
@@ -74,7 +68,23 @@ namespace HolidayMaui
 
         public async void ListClicked()
         {
+            StreamReader readercountry = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "Countries.txt"));
+            //StreamReader readerstartdate = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "StartDates.txt"));
+            //StreamReader readerenddate = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "EndDates.txt"));
 
+            int counter1 = 0;
+            string iscountry = "";
+
+
+            //while(iscountry != )
+            //{
+            //    iscountry = readercountry.ReadLine();
+            //    counter1++;
+            //}
+
+ 
+
+            //await _navigation.PushModalAsync(new HolidayTemplate(Convert.ToDateTime(line),Convert.ToDateTime(line2)));
         }
 
        

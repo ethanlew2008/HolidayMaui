@@ -2,10 +2,17 @@ namespace HolidayMaui;
 
 public partial class NewHolidayPage : ContentPage
 {
-	public NewHolidayPage()
+
+    private readonly NewHolidayViewModel _viewModel;
+
+    public NewHolidayPage(INavigation navigation)
 	{
+            
+
+
         InitializeComponent();
-        BindingContext = new NewHolidayViewModel();
+        _viewModel = new NewHolidayViewModel(navigation);
+        BindingContext = _viewModel; 
         //CurrencyDropDown.SelectedItem = "Currency";
         //CountryDropdown.ScaleTo(CountryDropdown.SelectedIndex);
     }

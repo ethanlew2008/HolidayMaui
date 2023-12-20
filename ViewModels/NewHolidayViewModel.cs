@@ -1,4 +1,6 @@
 ﻿using HolidayMaui.Models;
+using HolidayMaui.View;
+using Microsoft.Maui.Controls;
 using Newtonsoft.Json.Bson;
 using System;
 using System.Collections.Generic;
@@ -113,9 +115,11 @@ namespace HolidayMaui
         }
         private DateTime minimumdate;
 
+        private readonly INavigation _navigation;
 
-        public NewHolidayViewModel()
+        public NewHolidayViewModel(INavigation navigation)
          {
+            _navigation = navigation;
             Width = DeviceDisplay.MainDisplayInfo.Width;
             PopulatePicker();
             SelectedStartDate = DateTime.Now;
@@ -144,11 +148,7 @@ namespace HolidayMaui
                 streamWriter.WriteLine(SelectedEndDate.ToString());
             }
 
-            
-            if (DateTime.Now < SelectedStartDate) { int until = (SelectedStartDate - DateTime.Now).Days; }
-            else if(DateTime.Now > SelectedEndDate) { int since = (DateTime.Now - SelectedEndDate).Days;  }
-            else if(DateTime.Now >= SelectedStartDate && DateTime.Now <= SelectedEndDate) { int left = (SelectedEndDate - DateTime.Now).Days; }
-
+            await _navigation.PushModalAsync(new HolidayTemplate(SelectedStartDate,SelectedEndDate));
 
         }
         public async void SaveButtonClicked1()

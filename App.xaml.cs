@@ -7,5 +7,7 @@ public partial class App : Application
 		InitializeComponent();
 
 		MainPage = new AppShell();
-	}
+        Routing.RegisterRoute("HolidayTemplate", typeof(HolidayMaui.View.HolidayTemplate)); // Registering HolidayTemplate route
+
+    }
 }

@@ -5,7 +5,7 @@
              Title="ViewHolidayPage">
     <VerticalStackLayout>
 
-        <ListView x:Name="listView" ItemsSource="{Binding Countries}" ItemSelected="listView_ItemSelected">
+        <ListView x:Name="listView" ItemsSource="{Binding Countries}" ItemSelected="listView_ItemSelected" >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <TextCell Text="{Binding}" TextColor="White"/>

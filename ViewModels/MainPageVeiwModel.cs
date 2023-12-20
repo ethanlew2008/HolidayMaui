@@ -14,6 +14,7 @@ namespace HolidayMaui
         public ICommand ViewHolidayComm { private set; get; }
         public ICommand CurrencyComm { private set; get; }
 
+
         private string input;
         public string Input
         {
@@ -43,14 +44,16 @@ namespace HolidayMaui
 
         public async void NewHolidayPressed()
         {
-            await veiw.Navigation.PushAsync(new NewHolidayPage());
+            var navigation = App.Current.MainPage.Navigation;
+            await veiw.Navigation.PushAsync(new NewHolidayPage(navigation));
         }
 
 
 
         public async void ViewHolidayPressed()
         {
-            await veiw.Navigation.PushAsync(new ViewHolidayPage());
+            var navigation = App.Current.MainPage.Navigation;
+            await veiw.Navigation.PushAsync(new ViewHolidayPage(navigation));
         }
 
         public async void CurrencyPressed()
