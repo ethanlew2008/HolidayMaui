@@ -12,6 +12,6 @@ public partial class ViewHolidayPage : ContentPage
     {
         var navigation = App.Current.MainPage.Navigation;
         ViewHolidayViewModel viewHolidayViewModel = new ViewHolidayViewModel(navigation);
-        viewHolidayViewModel.ListClicked();
+        viewHolidayViewModel.ListClicked((string)listView.SelectedItem);
     }
 }

@@ -148,7 +148,8 @@ namespace HolidayMaui
                 streamWriter.WriteLine(SelectedEndDate.ToString());
             }
 
-            await _navigation.PushModalAsync(new HolidayTemplate(SelectedStartDate,SelectedEndDate));
+            await _navigation.PopToRootAsync();  // Clear stack
+            await _navigation.PushAsync(new HolidayTemplate(SelectedStartDate, SelectedEndDate,SelectedCountry));
 
         }
         public async void SaveButtonClicked1()

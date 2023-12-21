@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="HolidayMaui.View.HolidayTemplate"
              Title="HolidayTemplate">
-    
+
     <StackLayout>
         <Label Text="{Binding Days}" HorizontalOptions="CenterAndExpand" FontSize="Title" Padding="50" FontAttributes="Bold" TextDecorations="Underline"/>
 
@@ -17,8 +17,16 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
+            <Label Text="From:" Grid.Row="0" Grid.Column="0" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
+            <Label Text="{Binding From}" Grid.Row="1" Grid.Column="0" FontSize="Large" Padding="50,0,0,0"/>
+
+            <Label Text="To:" Grid.Row="0" Grid.Column="1" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
+            <Label Text="{Binding To}" Grid.Row="1" Grid.Column="1" FontSize="Large" Padding="50,0,0,30"/>
+
+            <Label Text="Currency:" Grid.Row="3" Grid.Column="0" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
+            <Label Text="{Binding Currency}" Grid.Row="4" Grid.Column="0" FontSize="Large" Padding="50,0,0,0"/>
+
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>

@@ -25,9 +25,6 @@ namespace HolidayMaui
         }
         private double width;
 
-
-        string Selected = "";
-
         public List<string> Countries
         {
             get { return countries; }
@@ -42,49 +39,51 @@ namespace HolidayMaui
         }
         public List<string> countries = new List<string>();
 
-        public ICommand listselect { get; set; }
-
         private readonly INavigation _navigation;
-
 
         public ViewHolidayViewModel(INavigation navigation)
         {
             _navigation = navigation;
             Width = DeviceDisplay.MainDisplayInfo.Width;
-            listselect = new Command(ListClicked);
             PopulateList();
         }
 
         public async void PopulateList()
         {
             string filepath = Path.Combine(FileSystem.AppDataDirectory, "Countries.txt");
+            if (!File.Exists(filepath)) { return; }
             StreamReader reader = new StreamReader(filepath);
-
-            while (!reader.EndOfStream)
-            {
-                Countries.Add(reader.ReadLine());
-            }
+            while (!reader.EndOfStream) { Countries.Add(reader.ReadLine()); }
+            reader.Close();
         }
+     
 
-        public async void ListClicked()
+        public async void ListClicked(string Country)
         {
             StreamReader readercountry = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "Countries.txt"));
-            //StreamReader readerstartdate = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "StartDates.txt"));
-            //StreamReader readerenddate = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "EndDates.txt"));
+            StreamReader readerstartdate = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "StartDates.txt"));
+            StreamReader readerenddate = new StreamReader(Path.Combine(FileSystem.AppDataDirectory, "EndDates.txt"));
 
-            int counter1 = 0;
-            string iscountry = "";
+            int counter = 0;
+            string line = "";
 
+            while (line != Country)
+            {
+                line = readercountry.ReadLine();
+                counter++;
+            }
 
-            //while(iscountry != )
-            //{
-            //    iscountry = readercountry.ReadLine();
-            //    counter1++;
-            //}
+            DateTime start = DateTime.Now;
+            DateTime end = DateTime.Now;
 
- 
+            for (int i = 0; i < counter; i++) { start = Convert.ToDateTime(readerstartdate.ReadLine()); }
+            for (int i = 0; i < counter; i++) { end = Convert.ToDateTime(readerenddate.ReadLine()); }
 
-            //await _navigation.PushModalAsync(new HolidayTemplate(Convert.ToDateTime(line),Convert.ToDateTime(line2)));
+            readercountry.Close();
+            readerstartdate.Close();
+            readerenddate.Close();
+
+            await _navigation.PushModalAsync(new HolidayTemplate(start,end,Country));
         }
 
        

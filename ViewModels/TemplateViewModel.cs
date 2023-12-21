@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,14 +25,60 @@ namespace HolidayMaui.ViewModels
             }
         }
         private string days;
-        public TemplateViewModel(DateTime sdate, DateTime edate)
+
+        public string From
+        {
+            get { return from; }
+            set
+            {
+                if (from != value)
+                {
+                    from = value;
+                    OnPropertyChange("From");
+                }
+            }
+        }
+        private string from;
+
+        public string To
+        {
+            get { return to; }
+            set
+            {
+                if (to != value)
+                {
+                    to = value;
+                    OnPropertyChange("To");
+                }
+            }
+        }
+        private string to;
+
+        public string Currency
+        {
+            get { return currency; }
+            set
+            {
+                if (currency != value)
+                {
+                    currency = value;
+                    OnPropertyChange("Currency");
+                }
+            }
+        }
+        private string currency;
+
+        public string CountryName = "";
+
+        public TemplateViewModel(DateTime sdate, DateTime edate, string Country)
         {        
             start = sdate;
             end = edate;
             Build();
+            CountryName = Country;
         }
 
-        public void Build()
+        public async void Build()
         {
             string build = "";
             if (DateTime.Now < start) 
@@ -49,8 +96,15 @@ namespace HolidayMaui.ViewModels
                 int left = (end - DateTime.Now).Days; 
                 build = left + " Days Left!"; 
             }
-
             Days = build;
+
+            From = start.ToString("d MMM, yy"); 
+            To = end.ToString("d MMM, yy");
+
+            var myfile = await FileSystem.OpenAppPackageFileAsync("Currencies.csv");
+            StreamReader reader = new StreamReader(myfile);
+            List<string> temp = new List<string>();
+
         }
     }
 }
