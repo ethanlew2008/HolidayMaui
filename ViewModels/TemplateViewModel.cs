@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Nager.Country;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
+using static Android.Icu.Text.IDNA;
 
 namespace HolidayMaui.ViewModels
 {
@@ -25,6 +28,20 @@ namespace HolidayMaui.ViewModels
             }
         }
         private string days;
+
+        public string Time
+        {
+            get { return time; }
+            set
+            {
+                if (time != value)
+                {
+                    time = value;
+                    OnPropertyChange("Time");
+                }
+            }
+        }
+        private string time;
 
         public string From
         {
@@ -74,26 +91,27 @@ namespace HolidayMaui.ViewModels
         {        
             start = sdate;
             end = edate;
-            Build();
             CountryName = Country;
+            Build();
+            
         }
 
         public async void Build()
         {
             string build = "";
-            if (DateTime.Now < start) 
+            if (DateTime.Today < start) 
             {
-                int until = (start - DateTime.Now).Days; 
+                int until = (start - DateTime.Today).Days; 
                 build = until + " Days To Go!"; 
             }
-            else if (DateTime.Now > end) 
+            else if (DateTime.Today > end) 
             { 
-                int since = (DateTime.Now - end).Days; 
+                int since = (DateTime.Today - end).Days; 
                 build = since + " Days Ago"; 
             }
-            else if (DateTime.Now >= start && DateTime.Now <= end) 
+            else if (DateTime.Today >= start && DateTime.Today <= end) 
             {
-                int left = (end - DateTime.Now).Days; 
+                int left = (end - DateTime.Today).Days; 
                 build = left + " Days Left!"; 
             }
             Days = build;
@@ -101,9 +119,12 @@ namespace HolidayMaui.ViewModels
             From = start.ToString("d MMM, yy"); 
             To = end.ToString("d MMM, yy");
 
-            var myfile = await FileSystem.OpenAppPackageFileAsync("Currencies.csv");
-            StreamReader reader = new StreamReader(myfile);
-            List<string> temp = new List<string>();
+            var CountryProv = new CountryProvider();
+            var CountryInf = CountryProv.GetCountryByName(CountryName);
+            string IsoCode = CountryInf.Alpha2Code.ToString();
+
+            RegionInfo RegionInf = new RegionInfo(IsoCode);
+            Currency = RegionInf.CurrencyEnglishName;
 
         }
     }

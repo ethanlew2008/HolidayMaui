@@ -28,7 +28,9 @@ KMF,Comoros
 CRC,Costa Rica
 CUP,Cuba
 CZK,Czechia
-DKK,Denmark,Faroe Islands,Greenland
+DKK,Greenland
+DKK,Denmark
+DKK,Faroe Islands
 DOP,Dominican Republic
 SVC,El Salvador
 ETB,Ethiopia
@@ -46,7 +48,7 @@ HNL,Honduras
 HKD,Hong Kong
 HUF,Hungary
 ISK,Iceland
-INR,India,Bhutan
+INR,India
 IDR,Indonesia
 IRR,Iran
 IQD,Iraq
@@ -62,7 +64,6 @@ KWD,Kuwait
 KGS,Kyrgyzstan
 LAK,Laos
 LBP,Lebanon
-LSL,Lesotho
 LRD,Liberia
 LYD,Libya
 MOP,Macau
@@ -73,17 +74,21 @@ MUR,Mauritius
 MXN,Mexico
 MNT,Mongolia
 MDL,Moldova
-MAD,Morocco,Western Sahara
+MAD,Morocco
+MAD,Western Sahara
 OMR,Oman
 NAD,Namibia
 NPR,Nepal
-ANG,Curaçao,Sint Maarten
+ANG,Curaçao
+ANG,Sint Maarten
 AWG,Aruba
 VUV,Vanuatu
 NZD,New Zealand
 NIO,Nicaragua
 NGN,Nigeria
-NOK,Norway,Svalbard and Jan Mayen,Bouvet Island
+NOK,Norway
+NOK,Svalbard and Jan Mayen
+NOK,Bouvet Island
 PKR,Pakistan
 PAB,Panama
 PGK,Papua New Guinea
@@ -93,17 +98,21 @@ PHP,Philippines
 QAR,Qatar
 RUB,Russia
 RWF,Rwanda
-SHP,Saint Helena,Ascension Island
+SHP,Saint Helena
+SHP,Ascension Island
 SAR,Saudi Arabia
 SCR,Seychelles
 SLL,Sierra Leone
 SGD,Singapore
 VND,Vietnam
 SOS,Somalia
-ZAR,Eswatini,Lesotho,Namibia,South Africa
+ZAR,Eswatini
+ZAR,Lesotho
+ZAR,South Africa
 SSP,South Sudan
 SEK,Sweden
-CHF,Switzerland,Liechtenstein
+CHF,Switzerland
+CHF,Liechtenstein
 SYP,Syria
 THB,Thailand
 TOP,Tonga
@@ -134,10 +143,30 @@ MZN,Mozambique
 AZN,Azerbaijan
 RON,Romania
 TRY,Turkey
-XAF,Cameroon,Central African Republic,Republic of the Congo,Chad,Equatorial Guinea,Gabon
-XCD,Anguilla,Antigua and Barbuda,Dominica,Grenada,Montserrat,Saint Kitts and Nevis,Saint Lucia,Saint Vincent and the Grenadines
-XOF,Benin,Burkina Faso,Côte d'Ivoire,Guinea-Bissau,Mali,Niger,Senegal,Togo
-XPF,French Polynesia,New Caledonia,Wallis and Futuna
+XAF,Cameroon
+XAF,Central African Republic
+XAF,Republic of the Congo
+XAF,Chad
+XAF,Equatorial Guinea
+XAF,Gabon
+XCD,Anguilla,Antigua and Barbuda
+XCD,Dominica
+XCD,Grenada
+XCD,Montserrat
+XCD,Saint Kitts and Nevis
+XCD,Saint Lucia
+XCD,Saint Vincent and the Grenadines
+XOF,Benin
+XOF,Burkina Faso
+XOF,Côte d'Ivoire
+XOF,Guinea-Bissau
+XOF,Mali
+XOF,Niger
+XOF,Senegal
+XOF,Togo
+XPF,French Polynesia
+XPF,New Caledonia
+XPF,Wallis and Futuna
 ZMW,Zambia
 SRD,Suriname
 MGA,Madagascar
@@ -169,6 +198,5 @@ EUR,Slovenia
 EUR,Spain
 UAH,Ukraine
 GEL,Georgia
-BOV,Bolivia
 PLN,Poland
 BRL,Brazil
