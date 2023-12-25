@@ -139,6 +139,9 @@
     <value>To</value>
   </data>
   <data name="ViewHoliday" xml:space="preserve">
-    <value>View Holiday</value>
+    <value>View Holiday</value>    
+  </data>
+  <data name="LOC" xml:space="preserve">
+    <value>LOC</value>    
   </data>
 </root>

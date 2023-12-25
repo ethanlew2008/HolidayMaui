@@ -7,7 +7,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-using static Android.Icu.Text.IDNA;
+//using static Android.Icu.Text.IDNA;
 
 namespace HolidayMaui.ViewModels
 {
@@ -15,6 +15,8 @@ namespace HolidayMaui.ViewModels
     {
         DateTime start;
         DateTime end;
+
+        private readonly object lockObject = new object();
 
         public string Days
         {
@@ -29,20 +31,6 @@ namespace HolidayMaui.ViewModels
             }
         }
         private string days;
-
-        public string Time
-        {
-            get { return time; }
-            set
-            {
-                if (time != value)
-                {
-                    time = value;
-                    OnPropertyChange("Time");
-                }
-            }
-        }
-        private string time;
 
         public string From
         {
@@ -88,6 +76,20 @@ namespace HolidayMaui.ViewModels
 
         public string CountryName = "";
 
+        public string LocTime
+        {
+            get { return loctime; }
+            set
+            {
+                if (loctime != value)
+                {
+                    loctime = value;
+                    OnPropertyChange("LocTime");
+                }
+            }
+        }
+        private string loctime;
+
         public TemplateViewModel(DateTime sdate, DateTime edate, string Country)
         {        
             start = sdate;
@@ -126,7 +128,34 @@ namespace HolidayMaui.ViewModels
 
             RegionInfo RegionInf = new RegionInfo(IsoCode);
             Currency = RegionInf.ISOCurrencySymbol.ToString();
-            
+
+            Thread thread = new Thread(new ThreadStart(TimeThread));
+            thread.Start();
+
         }
+
+
+
+        private void TimeThread()
+        {
+            while (true)
+            {
+                lock (lockObject)
+                {
+                    //Delay Between Days
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        LocTime = DateTime.Now.ToString("HH:mm");
+                        
+                    });
+                    Thread.Sleep(60000);
+                }
+            }
+
+
+        }
+
+
+
     }
 }
