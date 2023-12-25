@@ -10,6 +10,7 @@ public partial class MainPage : ContentPage
 		InitializeComponent();
         VeiwModel = new MainPageVeiwModel(this);
         BindingContext = VeiwModel;
+        int x = 4;
     }
 }
 
