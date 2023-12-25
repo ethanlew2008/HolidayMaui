@@ -1,11 +1,16 @@
 ﻿using HolidayMaui.Models;
+using HolidayMaui.Resources.Languages;
+using HolidayMaui.Resources.Languages.Countries;
 using HolidayMaui.View;
 using Microsoft.Maui.Controls;
 using Newtonsoft.Json.Bson;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
+using System.Resources;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
@@ -168,11 +173,17 @@ namespace HolidayMaui
             {
                 var line = await reader.ReadLineAsync();
                 var linearray = line.Split(',');
-                temp.Add(linearray[1]);
+                try
+                {
+                    ResourceManager Manager = CountryResource.ResourceManager;
+                    temp.Add(Manager.GetString(linearray[1]));
+                }
+                catch (Exception) { }                
             }
 
             temp.Sort();
             Countries = temp;
+           
         }
 
 

@@ -1,15 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="HolidayMaui.MainPage">
+             x:Class="HolidayMaui.MainPage"
+             xmlns:localization ="clr-namespace:HolidayMaui.Resources.Languages"
+              >
 
     <ScrollView>
         <StackLayout>
             <Label Text="{Binding Input}"/>
 
-            <Button Command="{Binding NewHolidayComm}" Text="New Holiday"/>
-            <Button Command="{Binding ViewHolidayComm}" Text="View Holiday"/>
-            <Button Command="{Binding CurrencyComm}" Text="Currency"/>
+            <Button Command="{Binding NewHolidayComm}" Text="{x:Static localization:AppResources.NewHoliday}"/>
+            <Button Command="{Binding ViewHolidayComm}" Text="{x:Static localization:AppResources.ViewHoliday}"/>
+            <Button Command="{Binding CurrencyComm}" Text="{x:Static localization:AppResources.Currency}"/>
 
         </StackLayout>
     </ScrollView>

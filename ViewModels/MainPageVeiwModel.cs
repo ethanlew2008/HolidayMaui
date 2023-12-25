@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
+using System.Resources;
 using System.Text;
 using System.Windows.Input;
 
@@ -14,8 +16,6 @@ namespace HolidayMaui
         public ICommand ViewHolidayComm { private set; get; }
         public ICommand CurrencyComm { private set; get; }
 
-
-        private string input;
         public string Input
         {
             get { return input; }
@@ -30,6 +30,7 @@ namespace HolidayMaui
 
             }
         }
+        private string input;
 
         private ContentPage veiw;
 
@@ -38,7 +39,7 @@ namespace HolidayMaui
             NewHolidayComm = new Command(NewHolidayPressed);
             ViewHolidayComm = new Command(ViewHolidayPressed);
             CurrencyComm = new Command(CurrencyPressed);         
-            veiw = v;
+            veiw = v;      
         }
 
 

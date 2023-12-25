@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LocalizationResourceManager.Maui;
+using Microsoft.Extensions.Logging;
 
 namespace HolidayMaui;
 

@@ -1,4 +1,5 @@
-﻿using Nager.Country;
+﻿using HolidayMaui.Resources.Languages;
+using Nager.Country;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -101,18 +102,18 @@ namespace HolidayMaui.ViewModels
             string build = "";
             if (DateTime.Today < start) 
             {
-                int until = (start - DateTime.Today).Days; 
-                build = until + " Days To Go!"; 
+                int until = (start - DateTime.Today).Days;
+                build = until + " " + AppResources.DaysToGo + "!";
             }
             else if (DateTime.Today > end) 
             { 
-                int since = (DateTime.Today - end).Days; 
-                build = since + " Days Ago"; 
+                int since = (DateTime.Today - end).Days;
+                build = since + " " + AppResources.DaysAgo;
             }
             else if (DateTime.Today >= start && DateTime.Today <= end) 
             {
-                int left = (end - DateTime.Today).Days; 
-                build = left + " Days Left!"; 
+                int left = (end - DateTime.Today).Days;
+                build = left + " " + AppResources.DaysLeft;
             }
             Days = build;
 
@@ -124,8 +125,8 @@ namespace HolidayMaui.ViewModels
             string IsoCode = CountryInf.Alpha2Code.ToString();
 
             RegionInfo RegionInf = new RegionInfo(IsoCode);
-            Currency = RegionInf.CurrencyEnglishName;
-
+            Currency = RegionInf.ISOCurrencySymbol.ToString();
+            
         }
     }
 }
