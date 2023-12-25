@@ -176,12 +176,15 @@ namespace HolidayMaui
                 try
                 {
                     ResourceManager Manager = CountryResource.ResourceManager;
+
                     temp.Add(Manager.GetString(linearray[1]));
+                    
                 }
                 catch (Exception) { }                
             }
 
             temp.Sort();
+            temp.RemoveRange(0, 4);
             Countries = temp;
            
         }
