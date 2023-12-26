@@ -25,15 +25,25 @@
 
             <Label Text="{x:Static localization:AppResources.From}" Grid.Row="0" Grid.Column="0" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
             <Label Text="{Binding From}" Grid.Row="1" Grid.Column="0" FontSize="Large" Padding="50,0,0,0"/>
-
-            <Label Text="{x:Static localization:AppResources.To}" Grid.Row="0" Grid.Column="1" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
-            <Label Text="{Binding To}" Grid.Row="1" Grid.Column="1" FontSize="Large" Padding="50,0,0,30"/>
+            <Border Stroke="Green" StrokeThickness="10" Grid.Column="0" Grid.RowSpan="2"/>
 
             <Label Text="{x:Static localization:AppResources.Currency}" Grid.Row="3" Grid.Column="0" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
             <Label Text="{Binding Currency}" Grid.Row="4" Grid.Column="0" FontSize="Large" Padding="50,0,0,30"/>
-            
+            <Border StrokeThickness="10" Stroke="Blue" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2"/>
+
             <Label Text="{x:Static localization:AppResources.LOC}" Grid.Row="6" Grid.Column="0" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
             <Label Text="{Binding LocTime}" Grid.Row="7" Grid.Column="0" FontSize="Large" Padding="50,0,0,30"/>
+            <Border StrokeThickness="10" Stroke="Green" Grid.Row="6" Grid.Column="0" Grid.RowSpan="2"/>
+
+            <Label Text="{x:Static localization:AppResources.To}" Grid.Row="0" Grid.Column="1" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
+            <Label Text="{Binding To}" Grid.Row="1" Grid.Column="1" FontSize="Large" Padding="50,0,0,30"/>
+            <Border StrokeThickness="10" Stroke="Blue" Grid.Row="0" Grid.Column="1" Grid.RowSpan="2"/>
+           
+            <Label Text="{x:Static localization:AppResources.Data}" Grid.Row="3" Grid.Column="1" FontSize="Large" TextDecorations="Underline" Padding="50,0,0,30"/>
+            <Label Text="{Binding DataOn}" Grid.Row="4" Grid.Column="1" FontSize="Large" Padding="50,0,0,30"/>
+            <Border StrokeThickness="10" Stroke="Green" Grid.Row="3" Grid.Column="1" Grid.RowSpan="2"/>
+
+
 
             
 

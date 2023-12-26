@@ -32,6 +32,21 @@ namespace HolidayMaui.ViewModels
         }
         private string days;
 
+
+        public string DataOn
+        {
+            get { return dataon; }
+            set
+            {
+                if (dataon != value)
+                {
+                    dataon = value;
+                    OnPropertyChange("DataOn");
+                }
+            }
+        }
+        private string dataon;
+
         public string From
         {
             get { return from; }
@@ -96,7 +111,6 @@ namespace HolidayMaui.ViewModels
             end = edate;
             CountryName = Country;
             Build();
-            
         }
 
         public async void Build()
@@ -132,6 +146,7 @@ namespace HolidayMaui.ViewModels
             Thread thread = new Thread(new ThreadStart(TimeThread));
             thread.Start();
 
+            
         }
 
 
@@ -146,6 +161,12 @@ namespace HolidayMaui.ViewModels
                     Device.BeginInvokeOnMainThread(() =>
                     {
                         LocTime = DateTime.Now.ToString("HH:mm");
+
+                        if (Connectivity.Current.ConnectionProfiles.Contains(ConnectionProfile.Cellular)) { DataOn = "Yes"; }
+                        else { DataOn = "No"; }
+                        
+                        
+                        
                         
                     });
                     Thread.Sleep(60000);

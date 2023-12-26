@@ -146,5 +146,8 @@
   </data>
   <data name="LOC" xml:space="preserve">
     <value>LOC</value>
+  </data>  
+  <data name="Data" xml:space="preserve">
+    <value>Data</value>    
   </data>
 </root>

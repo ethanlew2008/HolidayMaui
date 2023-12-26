@@ -67,6 +67,15 @@ namespace HolidayMaui.Resources.Languages {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        internal static string Data {
+            get {
+                return ResourceManager.GetString("Data", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Days Ago.
         /// </summary>
         internal static string DaysAgo {
