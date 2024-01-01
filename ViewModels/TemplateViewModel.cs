@@ -142,6 +142,7 @@ namespace HolidayMaui.ViewModels
 
             RegionInfo RegionInf = new RegionInfo(IsoCode);
             Currency = RegionInf.ISOCurrencySymbol.ToString();
+           
 
             Thread thread = new Thread(new ThreadStart(TimeThread));
             thread.Start();
@@ -149,8 +150,7 @@ namespace HolidayMaui.ViewModels
             
         }
 
-
-
+        
         private void TimeThread()
         {
             while (true)
@@ -162,12 +162,9 @@ namespace HolidayMaui.ViewModels
                     {
                         LocTime = DateTime.Now.ToString("HH:mm");
 
-                        if (Connectivity.Current.ConnectionProfiles.Contains(ConnectionProfile.Cellular)) { DataOn = "Yes"; }
-                        else { DataOn = "No"; }
-                        
-                        
-                        
-                        
+                        if (Connectivity.Current.ConnectionProfiles.Contains(ConnectionProfile.Cellular)) { DataOn = "On"; }
+                        else { DataOn = "Off"; }
+                       
                     });
                     Thread.Sleep(60000);
                 }

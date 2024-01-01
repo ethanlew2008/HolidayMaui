@@ -184,6 +184,7 @@ namespace HolidayMaui
             }
 
             temp.Sort();
+            //Remove this range as there is consistently 5 null items at the beginning of the list, unsure as to why.
             temp.RemoveRange(0, 4);
             Countries = temp;
            

@@ -7,8 +7,10 @@
              >
 
     <StackLayout>
-        <Label Text="{Binding Days}" HorizontalOptions="CenterAndExpand" FontSize="Title" Padding="50" FontAttributes="Bold" TextDecorations="Underline"/>
+        <Button x:Name="BackButton" Text="⬅" BackgroundColor="Black" TextColor="White" HorizontalOptions="Start" FontSize="Title" Clicked="BackButton_Clicked"/>
 
+        <Label Text="{Binding Days}" HorizontalOptions="CenterAndExpand" FontSize="Title" Padding="50" FontAttributes="Bold" TextDecorations="Underline"/>
+        
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition/>

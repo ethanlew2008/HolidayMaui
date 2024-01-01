@@ -83,6 +83,8 @@ namespace HolidayMaui
             readerstartdate.Close();
             readerenddate.Close();
 
+
+
             await _navigation.PushModalAsync(new HolidayTemplate(start,end,Country));
         }
 

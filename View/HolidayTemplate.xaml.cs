@@ -9,4 +9,9 @@ public partial class HolidayTemplate : ContentPage
         BindingContext = new TemplateViewModel(start,end,Country);
 		InitializeComponent();
     }
+
+    void BackButton_Clicked(System.Object sender, System.EventArgs e)
+    {
+           
+    }
 }
